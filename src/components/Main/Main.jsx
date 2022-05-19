@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Display from './Display';
-import { SpinnerCircularFixed } from 'spinners-react';
+import Display from '../Display/Display';
+import { SpinnerRound } from 'spinners-react';
+import './styles.css';
 
 export default function Main(){
 
@@ -25,10 +26,13 @@ export default function Main(){
 
 
     return (
-        <div className="App">
-        {categories.map((category, index) => <button key={index} onClick={()=>{selectCategory(category)}}>{category}</button>)}
-        <SpinnerCircularFixed enabled={loading} />
-        <Display data={data} />
+        <div className="main">
+          <div className="navBar">
+            {categories.map((category, index) => <button key={index} onClick={()=>{selectCategory(category)}}>{category}</button>)}
+          </div>
+          <div className='display'>
+          {loading ?  <SpinnerRound size={100} color={'#7F8487'} enabled={loading} /> :  <Display data={data} />}
+          </div>
         </div>
       );
 }

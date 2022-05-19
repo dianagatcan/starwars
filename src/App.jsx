@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Main from './components/Main';
+import Main from './components/Main/Main';
 
 //Method 1:
 // function App() {

@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
+
+li {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    list-style-type: none;
+    line-height: 2rem;
+    font-family: 'Poller One', cursive, Arial, Helvetica, sans-serif;
+}
