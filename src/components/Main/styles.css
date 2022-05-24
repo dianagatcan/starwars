@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
+
+
 
 .main {
     margin-top: 50px;
@@ -15,6 +18,7 @@
 }
 
 button{
+    font-family: 'Poller One', cursive, Arial, Helvetica, sans-serif;
   align-items: center;
   background: #FFFFFF;
   border: 0 solid #E2E8F0;

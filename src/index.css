@@ -7,7 +7,6 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: black;
   background-image: url('starWarsbackground.webp');
   /* font-size: 140%; */
 }

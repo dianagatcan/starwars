@@ -7,21 +7,39 @@ export default function Main(){
 
     const[data, setData] = useState([]);
     const[loading, setLoading] = useState(false);
-    const categories = ['People', 'Films', 'Starships', 'Planets']
+    const [clicked, setClicked] = useState(false);
+
+    const [selectedCategory, setSelectedCategory] = useState('')
+
+    const categories = ['People', 'Starships', 'Planets'];
+
+ 
+
 
     async function selectCategory(category){
+      setClicked(true)
       setLoading(true)
+      setSelectedCategory(category);
       const request = new Request(`https://swapi.dev/api/${category.toLowerCase()}/`)
       const jsonResponse = await (await fetch(request)).json()
-      const objectList= jsonResponse.results
-      const names = objectList.map(elem => {
-        if(elem.name){
-          return elem.name
-        }
-        return elem.title
-      })
+      const objectList = jsonResponse.results;
+
+      const names = objectList.map(elem => elem.name);
       setLoading(false)
       setData(names)
+    }
+
+    function handleClick(){
+      clicked(false);
+    }
+
+
+    ////////////Function for Table
+
+    const [details, setDetails] = useState('')
+
+    async function fetchMoreDetails(){
+
     }
 
 
@@ -30,8 +48,12 @@ export default function Main(){
           <div className="navBar">
             {categories.map((category, index) => <button key={index} onClick={()=>{selectCategory(category)}}>{category}</button>)}
           </div>
+
           <div className='display'>
-          {loading ?  <SpinnerRound size={100} color={'#7F8487'} enabled={loading} /> :  <Display data={data} />}
+          { clicked ? loading ? 
+          <SpinnerRound size={100} color={'#7F8487'} enabled={loading} /> : 
+          <Display category= {selectedCategory} data={data} /> :
+           <></>}
           </div>
         </div>
       );
